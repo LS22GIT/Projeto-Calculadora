@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora</title>
+</head>
+<body>
+    <div id="calculadora">
+        <div class="leitor">
+        <input id="leitor" type="text" disabled>
+        </div>
+        <button id='cor' onclick="cor('#ff0000') ">cor</button>
+        <table>
+        <tr>
+        <td colspan="2"><button onclick="calcular('acao','C')" id="C">C</button></td>
+        <td><button onclick="calcular('acao','/')" id="dividi">/</button></td>
+        <td><button onclick="calcular('acao', '*')" id="mutiplica">x</button></td>
+        </tr>
+        <tr>
+        <td><button onclick="calcular('valor','1')">1</button></td>
+        <td><button onclick="calcular('valor','2')">2</button></td>
+        <td><button onclick="calcular('valor','3')">3</button></td>
+        <td><button onclick="calcular('acao','-')">-</button></td>
+        </tr>
+        <tr>
+        <td><button onclick="calcular('valor','4')">4</button></td>
+        <td><button onclick="calcular('valor','5')">5</button></td>
+        <td><button onclick="calcular('valor','6')">6</button></td>
+        <td><button onclick="calcular('acao','+')">+</button></td>
+        </tr>
+        <tr>
+        <td><button onclick="calcular('valor','7')">7</button></td>
+        <td><button onclick="calcular('valor','8')">8</button></td>
+        <td><button onclick="calcular('valor','9')">9</button></td>
+        <td rowspan="2"><button onclick="calcular('acao','=')" id="igual">=</button></td>
+        </tr>
+        <tr>
+        <td  colspan="2"><button onclick="calcular('valor','0')" id="zero">0</button></td>
+        <td><button onclick="calcular('valor','.')">.</button></td>
+        </table>
+        </tr>
+
+        <script>
+            let valor_campo =""
+            function  calcular(tipo,valor){
+            if (tipo== "acao"){
+                if(valor=="/"){
+                document.getElementById("leitor").value+= "/"
+            } if (valor =="*"){
+                document.getElementById("leitor").value+= "*"
+            } if (valor=="-"){
+                document.getElementById("leitor").value+="-"
+            } if (valor=="+"){
+                document.getElementById("leitor").value+="+"
+            } if (valor=="="){
+                var valor_campo = eval(document.getElementById("leitor").value)
+                document.getElementById("leitor").value=valor_campo
+            } if (valor=="C"){
+               var resultado = ""
+               document.getElementById("leitor").value = resultado
+
+                    
+
+            } }if (tipo=="valor") {
+                numb =document.getElementById("leitor").value+=valor
+                console.log(numb)
+            }        
+}
+        x=0
+        function cor(color){
+            
+            x +=1
+            if (x==1){
+                color = "#ff0000"
+            } if (x==2){
+                color = "#00ff00"
+            } if (x==3){
+                color = "#0000ff"
+            } if (x==4){
+                color = "#000000"
+            }if (x==5){
+                color = "#ffffff"
+            }if (x==6){
+                color = "#ff00ff"
+            }if (x==7){
+                color = "#ffff00"
+            }
+            if (x==8){
+                color = "#2e2e2e"
+                x=0
+            }
+            document.getElementById("calculadora").style.background = color
+        }
+        </script>
+    </div>
+    
+</body>
+</html>
